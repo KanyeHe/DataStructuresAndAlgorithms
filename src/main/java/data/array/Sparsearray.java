@@ -1,4 +1,4 @@
-package data;
+package data.array;
 
 /**
  * @author Kanye
