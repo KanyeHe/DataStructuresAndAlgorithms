@@ -1,13 +1,8 @@
 package data.stack;
 
 
-import lombok.Data;
-import lombok.Getter;
-
-import java.util.Optional;
+import data.stack.enums.Operator;
 import java.util.Stack;
-import java.util.function.BiFunction;
-import java.util.stream.Stream;
 
 /**
  * 综合计算器
@@ -89,28 +84,4 @@ public class CalculatorByStack {
         System.out.println(calculator.operate("2*5-80+110-25/5"));
     }
 
-}
-
-@Getter
-enum Operator {
-    ADD('+', 10, Integer::sum,"加法"),
-    SUB('-', 10, (a, b) -> a - b, "减法"),
-    MUL('*', 20, (a, b) -> a * b, "乘法"),
-    DIV('/', 20, (a, b) -> a / b, "除法"),
-    ;
-    private final char operator;
-    private final int priority;
-    private final String desc;
-
-    private final BiFunction<Integer, Integer, Integer> operate;
-
-    Operator(char operator, int priority, BiFunction<Integer, Integer, Integer> operate, String desc) {
-        this.operator = operator;
-        this.priority = priority;
-        this.operate = operate;
-        this.desc = desc;
-    }
-    public static Optional<Operator> operator(char c) {
-        return Stream.of(values()).filter(x -> x.getOperator() == c).findAny();
-    }
 }
