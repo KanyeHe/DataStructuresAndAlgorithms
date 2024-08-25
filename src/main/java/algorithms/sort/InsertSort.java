@@ -17,20 +17,39 @@ import java.util.Arrays;
  * 第五次插入
  * [3, 9, 14, 17, 20, 25]
  */
+
+/**
+ * 缺点 ： 极端情况下会导致 移动次数很高， 为了解决这个问题，引出了 希尔排序
+ */
 public class InsertSort {
+
+//    public static void main(String[] args) {
+//        int[] insert = {17, 3, 25, 14, 20, 9};
+//
+//        for (int i = 1; i < insert.length; i++) {
+//            int waitInsert = insert[i];
+//            int waitIndex = i - 1;
+//            while (waitIndex >= 0 && waitInsert < insert[waitIndex]) {
+//                insert[waitIndex + 1] = insert[waitIndex];
+//                waitIndex--;
+//            }
+//            //当while结束后，就能知道待插入的位置是 waitIndex + 1 的地方
+//            insert[waitIndex + 1] = waitInsert;
+//        }
+//        System.out.println(Arrays.toString(insert));
+//    }
 
     public static void main(String[] args) {
         int[] insert = {17, 3, 25, 14, 20, 9};
 
         for (int i = 1; i < insert.length; i++) {
             int waitInsert = insert[i];
-            int waitIndex = i - 1;
-            while (waitIndex >= 0 && waitInsert < insert[waitIndex]) {
-                insert[waitIndex + 1] = insert[waitIndex];
-                waitIndex--;
+            int index = i - 1;
+            while (index >= 0 && waitInsert < insert[index]) {
+                insert[index + 1] = insert[index];
+                index--;
             }
-            //当while结束后，就能知道待插入的位置是 waitIndex + 1 的地方
-            insert[waitIndex + 1] = waitInsert;
+            insert[index + 1] = waitInsert;
         }
         System.out.println(Arrays.toString(insert));
     }
