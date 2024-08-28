@@ -1,5 +1,8 @@
 package data.list;
 
+import data.common.DNode;
+import data.common.Node;
+
 import java.util.Scanner;
 
 /**

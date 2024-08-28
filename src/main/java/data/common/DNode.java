@@ -1,4 +1,4 @@
-package data.list;
+package data.common;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
