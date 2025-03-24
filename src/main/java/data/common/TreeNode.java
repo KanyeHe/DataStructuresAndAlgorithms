@@ -4,17 +4,17 @@ import lombok.Data;
 
 @Data
 public class TreeNode<T extends Id> {
-    private T data;
-    private TreeNode<T> left;
-    private TreeNode<T> right;
+    protected T data;
+    protected TreeNode<T> left;
+    protected TreeNode<T> right;
 
     public void preOrder() {
         System.out.println(this);
         if (this.left != null) {
-            preOrder();
+            this.left.preOrder();
         }
         if (this.right != null) {
-            preOrder();
+            this.right.preOrder();
         }
     }
 
@@ -49,20 +49,20 @@ public class TreeNode<T extends Id> {
 
     public void infixOrder() {
         if (this.left != null) {
-            infixOrder();
+            this.left.infixOrder();
         }
         System.out.println(this);
         if (this.right != null) {
-            infixOrder();
+            this.right.infixOrder();
         }
     }
 
     public void postOrder() {
         if (this.left != null) {
-            postOrder();
+            this.left.postOrder();
         }
         if (this.right != null) {
-            postOrder();
+            this.right.postOrder();
         }
         System.out.println(this);
     }

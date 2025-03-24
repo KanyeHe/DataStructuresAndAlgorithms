@@ -10,13 +10,7 @@ package data.tree;
  * 4. ~~第n个元素的父节点下标为 (n - 1)/2
  * 注意，n表示二叉树中的第几个元素，0开始
  */
-public class BinaryTreeByArray {
-
-    private final int[] array;
-
-    public BinaryTreeByArray(int[] array) {
-        this.array = array;
-    }
+public record BinaryTreeByArray(int[] array) {
 
     public boolean isEmpty() {
         return array == null || array.length == 0;
@@ -29,6 +23,7 @@ public class BinaryTreeByArray {
     private void preOrder(int index) {
         if (isEmpty()) {
             System.out.println("Empty ~~~~");
+            return;
         }
         System.out.println(array[index]);
         int leftIndex = (index << 1) + 1;

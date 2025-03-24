@@ -7,7 +7,6 @@ package algorithms.sort;
  *
  */
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 public class RadixSort {
 
@@ -31,8 +30,8 @@ public class RadixSort {
         int[] count = new int[10]; // 计数器（0-9）
 
         // 统计每个数字在该位上出现的次数
-        for (int i = 0; i < n; i++) {
-            int digit = (arr[i] / exp) % 10;
+        for (int j : arr) {
+            int digit = (j / exp) % 10;
             count[digit]++;
         }
 
